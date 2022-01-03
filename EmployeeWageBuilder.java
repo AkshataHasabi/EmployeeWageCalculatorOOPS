@@ -13,6 +13,7 @@ public class EmployeeWageBuilder {
 		empPresentOrAbsent();
 		empWage.empDailyWages();
 		empWage.empPartTimeWage();
+		empWage.empPartTimeSwitchCase();
 	}
 	
 	public static void empPresentOrAbsent() {
@@ -45,6 +46,22 @@ public class EmployeeWageBuilder {
 			}
 			else
 				empHrs = 0;
+			empWage = empHrs * EMP_RATE_PER_HOUR;
+			System.out.println("Emp Wage: " + empWage);   	
+	}
+	 
+	 public void empPartTimeSwitchCase() {
+	    	int empCheck = (int)Math.floor(Math.random()*10)%3;
+	    	switch (empCheck) {
+	    		case IS_FULL_TIME:
+	    				empHrs = 8;
+	    				break;
+	    		case IS_PART_TIME:
+	            		empHrs = 4;
+	            		break;
+	    		default:
+	    				empHrs = 0;
+	    	}
 			empWage = empHrs * EMP_RATE_PER_HOUR;
 			System.out.println("Emp Wage: " + empWage);   	
 	}
